@@ -1,0 +1,266 @@
+# Copyright 2019 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+"""Keyword spotter model."""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import logging
+import sys
+import audio_recorder
+import mel_features
+import numpy as np
+import queue
+import tflite_runtime.interpreter as tflite
+import platform
+from procesamiento_audio2 import build_melspectrogram, MIN_VAL, MAX_VAL
+import tensorflow as tf
+from sklearn.model_selection import train_test_split
+
+
+EDGETPU_SHARED_LIB = {
+    'Linux': 'libedgetpu.so.1',
+    'Darwin': 'libedgetpu.1.dylib',
+    'Windows': 'edgetpu.dll'
+}[platform.system()]
+
+q = queue.Queue()
+
+logging.basicConfig(
+    stream=sys.stdout,
+    format="%(levelname)-8s %(asctime)-15s %(name)s %(message)s")
+audio_recorder.logger.setLevel(logging.ERROR)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+
+
+def get_queue():
+  return q
+
+#*SUCIO* DATOS PARA PODER NORMALIZAR
+
+class LogMelFeatureExtractor(object):
+  """Provide uint8 log mel spectrogram slices from an AudioRecorder object.
+
+  This class provides one public method, get_next_spectrogram(), which gets
+  a specified number of spectral slices from an AudioRecorder.
+  """
+
+  def __init__(self, num_frames_hop=1):
+    self.N_FFT = 4096
+    self.N_MELS = 50
+    self.HOP_LENGTH = 0.5*self.N_FFT
+    audio_sample_rate_hz=16000
+    self.spectrogram_window_length_seconds = self.N_FFT/audio_sample_rate_hz
+    self.spectrogram_hop_length_seconds = self.HOP_LENGTH/audio_sample_rate_hz
+    self.num_mel_bins = self.N_MELS
+    self.frame_length_spectra = 1
+    if self.frame_length_spectra % num_frames_hop:
+        raise ValueError('Invalid num_frames_hop value (%d), '
+                         'must devide %d' % (num_frames_hop,
+                                             self.frame_length_spectra))
+    self.frame_hop_spectra = num_frames_hop
+    self._norm_factor = 3
+    self._clear_buffers()
+
+  def _clear_buffers(self):
+    self._audio_buffer = np.array([], dtype=np.int16).reshape(0, 1)
+    self._spectrogram = np.zeros((self.frame_length_spectra, self.num_mel_bins),
+                                 dtype=np.float32)
+
+  def _spectrogram_underlap_samples(self, audio_sample_rate_hz):
+    return int((self.spectrogram_window_length_seconds -
+                self.spectrogram_hop_length_seconds) * audio_sample_rate_hz)
+
+  def _frame_duration_seconds(self, num_spectra):
+    return (self.spectrogram_window_length_seconds +
+            (num_spectra - 1) * self.spectrogram_hop_length_seconds)
+
+  def _compute_spectrogram(self, audio_samples, audio_sample_rate_hz):
+    """Compute log-mel spectrogram and dont scale it to uint8."""
+    samples = audio_samples.flatten()
+    spectrogram = build_melspectrogram(audio_ndarray=samples, sample_rate= audio_sample_rate_hz, n_fft=self.N_FFT, hop_length=int(self.HOP_LENGTH), n_mels=self.N_MELS).T
+    #NORMALIZATION OF VALUES TO CALIBRATE THEM AS IN TRAINNING
+    spectrogram = (spectrogram-MIN_VAL) / (MAX_VAL - MIN_VAL)
+    spectrogram = tf.cast(spectrogram, tf.float32)
+
+    spectrogram = spectrogram.numpy()
+    #Pq nos da (3,50) y en principio la primera tupla es la mas proxima 
+    return spectrogram[0] #En principio deberia ser un array de (1,50) con los spectograms de un frame 
+
+  def _get_next_spectra(self, recorder, num_spectra):
+    """Returns the next spectrogram.
+
+    Compute num_spectra spectrogram samples from an AudioRecorder.
+    Blocks until num_spectra spectrogram slices are available.
+
+    Args:
+      recorder: an AudioRecorder object from which to get raw audio samples.
+      num_spectra: the number of spectrogram slices to return.
+
+    Returns:
+      num_spectra spectrogram slices computed from the samples.
+    """
+    required_audio_duration_seconds = self._frame_duration_seconds(num_spectra)
+    logger.info("required_audio_duration_seconds %f",
+                required_audio_duration_seconds)
+    required_num_samples = int(
+        np.ceil(required_audio_duration_seconds *
+                recorder.audio_sample_rate_hz))
+    logger.info("required_num_samples %d, %s", required_num_samples,
+                str(self._audio_buffer.shape))
+    audio_samples = np.concatenate(
+        (self._audio_buffer,
+         recorder.get_audio(required_num_samples - len(self._audio_buffer))[0]))
+    self._audio_buffer = audio_samples[
+        required_num_samples -
+        self._spectrogram_underlap_samples(recorder.audio_sample_rate_hz):]
+    spectrogram = self._compute_spectrogram(
+        audio_samples[:required_num_samples], recorder.audio_sample_rate_hz)
+    #assert len(spectrogram) == num_spectra
+    return spectrogram
+
+  def get_next_spectrogram(self, recorder):
+    """Get the most recent spectrogram frame.
+
+    Blocks until the frame is available.
+
+    Args:
+      recorder: an AudioRecorder instance which provides the audio samples.
+
+    Returns:
+      The next spectrogram frame as a uint8 numpy array.
+    """
+    assert recorder.is_active
+    logger.info("self._spectrogram shape %s", str(self._spectrogram.shape))
+    """self._spectrogram[:-self.frame_hop_spectra] = (
+        self._spectrogram[self.frame_hop_spectra:])
+    self._spectrogram[-self.frame_hop_spectra:] = (
+        self._get_next_spectra(recorder, self.frame_hop_spectra))"""
+    #vamos a probar de esta otra forma sin sliding window, ya que nosotros necesitamso sacar los melcepstrums y analizarlos de frame en frame
+    self._spectrogram = self._get_next_spectra(recorder, self.frame_hop_spectra)
+    
+    # Return a copy of the internal state that's safe to persist and won't
+    # change the next time we call this function.
+    logger.info("self._spectrogram shape %s", str(self._spectrogram.shape))
+    spectrogram = self._spectrogram.copy()
+    """spectrogram -= np.mean(spectrogram, axis=1)
+    if self._norm_factor:
+      spectrogram /= self._norm_factor * np.std(spectrogram, axis=1)
+      spectrogram += 1
+      spectrogram *= 127.5
+    return np.maximum(0, np.minimum(255, spectrogram)).astype(np.uint8)"""
+    return spectrogram
+  
+
+"""
+def read_labels(filename):
+  # The labels file can be made something like this.
+  f = open(filename, "r")
+  lines = f.readlines()
+  return ['negative'] + [l.rstrip() for l in lines]
+"""
+"""
+def read_commands(filename):
+  # commands should consist of a label, a command and a confidence.
+  f = open(filename, "r")
+  commands = {}
+  lines = f.readlines()
+  for command, key, confidence in [l.rstrip().split(',') for l in lines]:
+    commands[command] = { 'key': key, 'conf': 0.4}
+    if confidence and 0 <= float(confidence) <= 1:
+      commands[command]['conf'] = float(confidence)
+  return commands
+"""
+
+def get_output(interpreter):
+    """Returns entire output, threshold is applied later."""
+    return output_tensor(interpreter, 0)
+
+def output_tensor(interpreter, i):
+    """Returns dequantized output tensor if quantized before."""
+    output_details = interpreter.get_output_details()[i]
+    output_data = interpreter.get_tensor(interpreter.get_output_details()[0]['index'])
+    if 'quantization' not in output_details:
+        return output_data
+    scale, zero_point = output_details['quantization']
+    if scale == 0:
+        return output_data - zero_point
+    return scale * (output_data - zero_point)
+
+"""
+def input_tensor(interpreter):
+    Returns the input tensor view as numpy array.
+    tensor_index = interpreter.get_input_details()[0]['index']
+    return interpreter.tensor(tensor_index)()[0]
+"""
+
+def set_input(interpreter, data):
+    """Copies data to input tensor."""
+    interpreter_shape = interpreter.get_input_details()[0]['shape']
+    input_dtype = interpreter.get_input_details()[0]['dtype']
+    data = tf.reshape(tensor=data, shape=interpreter_shape)
+    data = tf.cast(data,input_dtype)
+    #input_tensor(interpreter)[:,:] = np.reshape(data, interpreter_shape[1:3])
+    interpreter.set_tensor(interpreter.get_input_details()[0]['index'], data)
+    
+
+
+def make_interpreter(model_file):
+    model_file, *device = model_file.split('@')
+    return tflite.Interpreter(
+      model_path=model_file)
+#      experimental_delegates=[
+#          tflite.load_delegate(EDGETPU_SHARED_LIB,
+#                               {'device': device[0]} if device else {})
+#      ])
+
+def add_model_flags(parser):
+  parser.add_argument(
+      "--model_file",
+      help="File path of TFlite model.",
+      default="models/model_quant_2.tflite")
+  parser.add_argument("--mic", default=None,
+                      help="Optional: Input source microphone ID.")
+  parser.add_argument(
+      "--num_frames_hop",
+      default=1,
+      help="Optional: Number of frames to wait between model inference "
+      "calls. Smaller numbers will reduce the latancy while increasing "
+      "compute cost. Must devide 198. Defaults to 33.")
+  parser.add_argument(
+      "--sample_rate_hz",
+      default=16000,
+      help="Optional: Sample Rate. The model expects 16000. "
+      "However you may alternative sampling rate that may or may not work."
+      "If you specify 48000 it will be downsampled to 16000.")
+
+def classify_audio(recorder, interpreter,
+                   threshold=1.2, num_frames_hop=1):
+  """Acquire audio, preprocess, and classify."""
+
+  feature_extractor = LogMelFeatureExtractor(num_frames_hop=num_frames_hop)
+  with recorder:
+    #last_detection = -1
+    #while not timed_out:
+    spectrogram = feature_extractor.get_next_spectrogram(recorder)
+    set_input(interpreter, spectrogram)
+    interpreter.invoke()
+    result = get_output(interpreter)
+    loss = np.mean(np.abs(spectrogram - result)) #MAE loss
+    if loss>threshold:
+        print("ANOMALY, loss:{}".format(loss))
+    else:
+       print("")

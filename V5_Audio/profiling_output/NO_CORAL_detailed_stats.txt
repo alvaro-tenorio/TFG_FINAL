@@ -1,0 +1,5 @@
+Inference Statistics:
+Average Inference Time: 0.4259s
+Minimum Inference Time: 0.3417s
+Maximum Inference Time: 0.5587s
+Average CPU Usage: 54.79%

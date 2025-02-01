@@ -1,0 +1,2 @@
+Best Configuration: {'encoder_layers': [128, 64, 32], 'decoder_layers': [64, 128, 20], 'activation': 'relu', 'learning_rate': 0.0001, 'batch_size': 128, 'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0}
+alvaro@raspberrypiGAPS:~/TFG/V3_acc $ 

@@ -1,0 +1,488 @@
+         983162 function calls (974355 primitive calls) in 301.048 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  301.045  301.045 /home/alvaro/TFG/V5_Audio/run_model_w_profiling.py:69(wrapped_main)
+        1    0.012    0.012  301.016  301.016 /home/alvaro/TFG/V5_Audio/run_model_w_profiling.py:124(run_model_with_stop)
+      742    0.050    0.000  300.830    0.405 /home/alvaro/TFG/V5_Audio/run_model_w_profiling.py:49(classify_audio_with_profiling)
+      742    0.111    0.000  300.059    0.404 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:250(classify_audio)
+      742    0.066    0.000  178.558    0.241 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:135(get_next_spectrogram)
+      742    0.146    0.000  178.458    0.241 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:103(_get_next_spectra)
+      742    0.194    0.000  165.345    0.223 /home/alvaro/TFG/V5_Audio/audio_recorder.py:174(get_audio)
+      742    0.036    0.000  165.113    0.223 /home/alvaro/TFG/V5_Audio/audio_recorder.py:199(<listcomp>)
+     5936    0.085    0.000  165.077    0.028 /home/alvaro/TFG/V5_Audio/audio_recorder.py:154(_get_chunk)
+     5936    0.158    0.000  164.613    0.028 /usr/lib/python3.11/queue.py:154(get)
+     5181    0.104    0.000  164.326    0.032 /usr/lib/python3.11/threading.py:288(wait)
+    26660  164.181    0.006  164.181    0.006 {method 'acquire' of '_thread.lock' objects}
+      742    0.152    0.000   99.441    0.134 /home/alvaro/TFG/V5_Audio/audio_recorder.py:91(__enter__)
+      742    0.052    0.000   97.964    0.132 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:631(open)
+      742    0.076    0.000   97.908    0.132 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:297(__init__)
+      742   53.246    0.072   53.246    0.072 {built-in method pyaudio._portaudio.open}
+      742   44.586    0.060   44.586    0.060 {built-in method pyaudio._portaudio.start_stream}
+      742    0.028    0.000   20.663    0.028 /home/alvaro/TFG/V5_Audio/audio_recorder.py:116(__exit__)
+      742    0.021    0.000   19.136    0.026 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:495(stop_stream)
+      742   19.115    0.026   19.115    0.026 {built-in method pyaudio._portaudio.stop_stream}
+      742    0.072    0.000   12.948    0.017 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:91(_compute_spectrogram)
+      742    0.051    0.000   11.339    0.015 /home/alvaro/TFG/V5_Audio/procesamiento_audio2.py:6(build_melspectrogram)
+      742    0.046    0.000   11.005    0.015 /home/alvaro/.local/lib/python3.11/site-packages/librosa/feature/spectral.py:2008(melspectrogram)
+      742    4.419    0.006    5.523    0.007 /home/alvaro/.local/lib/python3.11/site-packages/librosa/filters.py:127(mel)
+      742    0.065    0.000    3.004    0.004 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:1009(einsum)
+      742    2.560    0.003    2.643    0.004 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:932(tensordot)
+      742    0.181    0.000    2.427    0.003 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/spectrum.py:2863(_spectrogram)
+      742    0.291    0.000    2.246    0.003 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/spectrum.py:54(stft)
+6678/4452    0.049    0.000    1.910    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/util/traceback_utils.py:138(error_handler)
+      742    0.022    0.000    1.486    0.002 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:449(close)
+     1488    1.469    0.001    1.469    0.001 {built-in method builtins.print}
+      742    1.451    0.002    1.451    0.002 {built-in method pyaudio._portaudio.close}
+     4452    0.044    0.000    1.222    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1246(op_dispatch_handler)
+3710/2968    0.023    0.000    0.781    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/weak_tensor_ops.py:140(wrapper)
+     3710    0.760    0.000    0.760    0.000 {built-in method tensorflow.python._pywrap_tfe.TFE_Py_FastPathExecute}
+      742    0.022    0.000    0.711    0.001 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/override_binary_operator.py:144(r_binary_op_wrapper)
+      742    0.022    0.000    0.702    0.001 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:210(set_input)
+     1486    0.036    0.000    0.532    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:946(cpu_percent)
+4458/2229    0.026    0.000    0.514    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1642(wrapper)
+     1484    0.022    0.000    0.475    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/override_binary_operator.py:105(binary_op_wrapper)
+      742    0.010    0.000    0.471    0.001 /home/alvaro/.local/lib/python3.11/site-packages/librosa/filters.py:1172(get_window)
+      742    0.468    0.001    0.468    0.001 {method 'outer' of 'numpy.ufunc' objects}
+      742    0.023    0.000    0.461    0.001 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:2261(get_window)
+     2229    0.055    0.000    0.437    0.000 /usr/lib/python3/dist-packages/psutil/_common.py:439(wrapper)
+      742    0.003    0.000    0.437    0.001 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:724(hann)
+     2226    0.025    0.000    0.435    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/override_binary_operator.py:46(maybe_promote_tensors)
+      742    0.005    0.000    0.434    0.001 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:947(general_hamming)
+      742    0.267    0.000    0.430    0.001 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:40(general_cosine)
+     2968    0.013    0.000    0.425    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/profiler/trace.py:178(wrapped)
+     2968    0.010    0.000    0.412    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:717(convert_to_tensor)
+     2968    0.032    0.000    0.403    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/tensor_conversion_registry.py:164(convert)
+     2226    0.091    0.000    0.400    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:533(pad)
+     2226    0.015    0.000    0.395    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:320(rfft)
+     2229    0.052    0.000    0.382    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1676(_parse_stat_file)
+     2226    0.027    0.000    0.377    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:49(_raw_fft)
+     1484    0.018    0.000    0.376    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/tensor_math_operator_overrides.py:79(_subtract_factory)
+      742    0.006    0.000    0.368    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/weak_tensor_ops.py:86(wrapper)
+     1486    0.033    0.000    0.359    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1834(cpu_times)
+     5936    0.341    0.000    0.341    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+     5936    0.334    0.000    0.334    0.000 {built-in method numpy.fromstring}
+      742    0.009    0.000    0.326    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/array_ops.py:63(reshape)
+     2226    0.310    0.000    0.310    0.000 {built-in method numpy.fft._pocketfft_internal.execute}
+     2229    0.015    0.000    0.299    0.000 /usr/lib/python3/dist-packages/psutil/_common.py:774(bcat)
+     2226    0.055    0.000    0.298    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:72(frame)
+      742    0.013    0.000    0.296    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/gen_array_ops.py:8711(reshape)
+     1484    0.008    0.000    0.290    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/math_ops.py:541(subtract)
+      742    0.014    0.000    0.289    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/constant_tensor_conversion.py:23(_constant_tensor_conversion_function)
+     2229    0.021    0.000    0.284    0.000 /usr/lib/python3/dist-packages/psutil/_common.py:757(cat)
+     1484    0.050    0.000    0.275    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/math_ops.py:940(cast)
+      742    0.082    0.000    0.274    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:706(einsum_path)
+      742    0.011    0.000    0.271    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/tensor_math_operator_overrides.py:85(_truediv_factory)
+     1484    0.014    0.000    0.269    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/gen_math_ops.py:12212(sub)
+      742    0.003    0.000    0.262    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/constant_op.py:177(constant)
+      742    0.006    0.000    0.259    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/constant_op.py:280(_constant_impl)
+      742    0.003    0.000    0.248    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/constant_op.py:297(_constant_eager_impl)
+8904/8162    0.064    0.000    0.247    0.000 /home/alvaro/.local/lib/python3.11/site-packages/lazy_loader/__init__.py:77(__getattr__)
+      742    0.225    0.000    0.245    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/constant_op.py:75(convert_to_eager_tensor)
+      742    0.024    0.000    0.241    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/convert.py:1649(mel_frequencies)
+     1484    0.176    0.000    0.232    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/function_base.py:24(linspace)
+      742    0.003    0.000    0.232    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/math_ops.py:1476(truediv)
+      742    0.027    0.000    0.224    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/math_ops.py:1427(_truediv_python3)
+     1484    0.018    0.000    0.212    0.000 {method 'max' of 'numpy.ndarray' objects}
+      742    0.021    0.000    0.196    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:392(pad_center)
+     1484    0.007    0.000    0.194    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/_methods.py:39(_amax)
+      743    0.003    0.000    0.190    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:331(__init__)
+      743    0.024    0.000    0.187    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:334(_init)
+     2226    0.021    0.000    0.185    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:673(get_input_details)
+      742    0.118    0.000    0.184    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/spectrum.py:1697(power_to_db)
+     8904    0.044    0.000    0.172    0.000 /usr/lib/python3.11/importlib/__init__.py:108(import_module)
+        1    0.000    0.000    0.168    0.168 /home/alvaro/TFG/V5_Audio/audio_recorder.py:80(__init__)
+        1    0.000    0.000    0.167    0.167 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:589(__init__)
+        1    0.167    0.167    0.167    0.167 {built-in method pyaudio._portaudio.initialize}
+     3710    0.065    0.000    0.150    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:586(_get_tensor_details)
+      743    0.006    0.000    0.147    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:708(create_time)
+     2226    0.035    0.000    0.139    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:699(<listcomp>)
+      743    0.010    0.000    0.138    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1853(create_time)
+     2230    0.006    0.000    0.137    0.000 /usr/lib/python3/dist-packages/psutil/_common.py:727(open_binary)
+      742    0.004    0.000    0.136    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:188(get_output)
+      742    0.053    0.000    0.131    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:192(output_tensor)
+     2230    0.131    0.000    0.131    0.000 {built-in method io.open}
+     2226    0.085    0.000    0.123    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/stride_tricks.py:38(as_strided)
+     2968    0.123    0.000    0.123    0.000 {built-in method numpy.zeros}
+     4452    0.056    0.000    0.119    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:458(_as_pairs)
+      742    0.006    0.000    0.118    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/gen_math_ops.py:2097(cast)
+      742    0.006    0.000    0.117    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/gen_math_ops.py:8139(real_div)
+     8904    0.027    0.000    0.116    0.000 <frozen importlib._bootstrap>:1194(_gcd_import)
+     2226    0.039    0.000    0.115    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1393(moveaxis)
+      742    0.012    0.000    0.107    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3385(mean)
+     2226    0.076    0.000    0.105    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:86(_pad_simple)
+      742    0.075    0.000    0.105    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:523(_parse_einsum_input)
+     1486    0.010    0.000    0.104    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:1567(cpu_count)
+     1484    0.031    0.000    0.103    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:71(_wrapreduction)
+44552/42326    0.084    0.000    0.097    0.000 {built-in method builtins.getattr}
+     1486    0.006    0.000    0.095    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:613(cpu_count_logical)
+      742    0.041    0.000    0.095    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/_methods.py:101(_mean)
+     2229    0.090    0.000    0.090    0.000 {method 'read' of '_io.BufferedReader' objects}
+     1486    0.089    0.000    0.089    0.000 {built-in method posix.sysconf}
+     7420    0.024    0.000    0.082    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:2570(executing_eagerly)
+      742    0.029    0.000    0.079    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:238(valid_audio)
+    11130    0.078    0.000    0.078    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+     3710    0.024    0.000    0.077    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:5512(name_scope)
+     1484    0.007    0.000    0.071    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:751(get_output_details)
+      742    0.013    0.000    0.067    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:61(__init__)
+      742    0.066    0.000    0.066    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/convert.py:1255(mel_to_hz)
+      742    0.006    0.000    0.065    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2979(prod)
+     8904    0.036    0.000    0.063    0.000 <frozen importlib._bootstrap>:1167(_find_and_load)
+      742    0.007    0.000    0.060    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/convert.py:1587(fft_frequencies)
+      742    0.002    0.000    0.059    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:704(set_tensor)
+     6678    0.012    0.000    0.058    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/util/traceback_utils.py:32(is_traceback_filtering_enabled)
+     1484    0.012    0.000    0.058    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:759(<listcomp>)
+      742    0.004    0.000    0.058    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:928(invoke)
+      742    0.057    0.000    0.057    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.SetTensor}
+     1484    0.053    0.000    0.057    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/convert.py:1181(hz_to_mel)
+     4452    0.039    0.000    0.056    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1330(normalize_axis_tuple)
+     8162    0.056    0.000    0.056    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:1170(executing_eagerly)
+     4452    0.052    0.000    0.055    0.000 {built-in method tensorflow.python.framework._pywrap_python_api_dispatcher.Dispatch}
+     9646    0.055    0.000    0.055    0.000 {built-in method numpy.array}
+      755    0.007    0.000    0.055    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:710(get_device_info_by_host_api_device_index)
+      742    0.016    0.000    0.054    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:78(_clear_buffers)
+      742    0.043    0.000    0.053    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/fft/helper.py:172(rfftfreq)
+      742    0.009    0.000    0.053    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2421(all)
+     2226    0.044    0.000    0.052    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:129(_set_pad_area)
+    11130    0.052    0.000    0.052    0.000 {built-in method numpy.asarray}
+      742    0.048    0.000    0.048    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.Invoke}
+     5194    0.009    0.000    0.047    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:96(base_dtype)
+     3710    0.031    0.000    0.045    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:793(as_dtype)
+      756    0.008    0.000    0.044    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:827(get_device_info_by_index)
+    32725    0.028    0.000    0.044    0.000 {built-in method builtins.isinstance}
+     4453    0.026    0.000    0.044    0.000 /usr/lib/python3.11/logging/__init__.py:1479(info)
+     6678    0.018    0.000    0.044    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:53(_wrapfunc)
+     2968    0.019    0.000    0.042    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:615(__tf_tensor__)
+      742    0.007    0.000    0.041    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:391(numpy)
+     5194    0.038    0.000    0.038    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:83(_is_ref_dtype)
+     1484    0.017    0.000    0.038    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numerictypes.py:357(issubdtype)
+     5936    0.017    0.000    0.037    0.000 /usr/lib/python3.11/threading.py:359(notify)
+     2226    0.035    0.000    0.035    0.000 {built-in method numpy.arange}
+     2230    0.035    0.000    0.035    0.000 {method '__exit__' of '_io._IOBase' objects}
+      742    0.033    0.000    0.035    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/function_base.py:1324(diff)
+     4452    0.010    0.000    0.035    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:537(swapaxes)
+      756    0.016    0.000    0.035    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:840(_make_device_info_dictionary)
+    12600    0.026    0.000    0.034    0.000 /usr/lib/python3.11/queue.py:209(_qsize)
+     2226    0.032    0.000    0.032    0.000 {method 'copy' of 'numpy.ndarray' objects}
+    11117    0.019    0.000    0.031    0.000 /usr/lib/python3.11/threading.py:279(_is_owned)
+      742    0.004    0.000    0.031    0.000 {method 'all' of 'numpy.ndarray' objects}
+     6678    0.022    0.000    0.029    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:385(dtype)
+        1    0.000    0.000    0.029    0.029 /home/alvaro/TFG/V5_Audio/audio_recorder.py:121(__del__)
+        1    0.000    0.000    0.029    0.029 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:594(terminate)
+        1    0.028    0.028    0.028    0.028 {built-in method pyaudio._portaudio.terminate}
+     5181    0.022    0.000    0.028    0.000 /usr/lib/python3.11/threading.py:276(_acquire_restore)
+     2226    0.010    0.000    0.028    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3269(round)
+      742    0.002    0.000    0.027    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/_methods.py:61(_all)
+     8904    0.022    0.000    0.026    0.000 <frozen importlib._bootstrap>:1103(_sanity_check)
+      742    0.024    0.000    0.026    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/_methods.py:67(_count_reduce_items)
+     6678    0.025    0.000    0.025    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:6097(is_auto_dtype_conversion_enabled)
+     7421    0.025    0.000    0.025    0.000 /usr/lib/python3.11/logging/__init__.py:1734(isEnabledFor)
+     2226    0.025    0.000    0.025    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.InputIndices}
+    50455    0.023    0.000    0.023    0.000 {built-in method builtins.len}
+      742    0.012    0.000    0.022    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/ops/shape_util.py:42(maybe_set_static_shape)
+     5937    0.014    0.000    0.022    0.000 /usr/lib/python3.11/threading.py:264(__enter__)
+      742    0.018    0.000    0.021    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:413(_can_dot)
+     2968    0.014    0.000    0.020    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numerictypes.py:283(issubclass_)
+     2230    0.020    0.000    0.020    0.000 {method 'split' of 'bytes' objects}
+    13400    0.019    0.000    0.019    0.000 {method 'get' of 'dict' objects}
+      742    0.018    0.000    0.018    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:2234(dtype_r2c)
+      742    0.004    0.000    0.018    0.000 /home/alvaro/TFG/V5_Audio/audio_recorder.py:125(is_active)
+     2968    0.014    0.000    0.018    0.000 <frozen importlib._bootstrap>:1209(_handle_fromlist)
+     8904    0.018    0.000    0.018    0.000 {built-in method numpy.asanyarray}
+      742    0.002    0.000    0.018    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:379(_numpy)
+      742    0.014    0.000    0.017    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:466(expand_to)
+      742    0.007    0.000    0.017    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:194(is_compatible_with)
+     5937    0.012    0.000    0.017    0.000 /usr/lib/python3.11/threading.py:267(__exit__)
+     2234    0.005    0.000    0.016    0.000 <frozen abc>:117(__instancecheck__)
+     5936    0.013    0.000    0.015    0.000 /usr/lib/python3.11/queue.py:217(_get)
+      742    0.015    0.000    0.015    0.000 {method '_numpy_internal' of 'tensorflow.python.framework.ops.EagerTensor' objects}
+      756    0.005    0.000    0.015    0.000 /usr/lib/python3.11/locale.py:678(getpreferredencoding)
+      742    0.010    0.000    0.015    0.000 /usr/lib/python3.11/logging/__init__.py:2150(debug)
+     2968    0.015    0.000    0.015    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:264(__eq__)
+      742    0.014    0.000    0.015    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:85(_find_contraction)
+     2968    0.007    0.000    0.014    0.000 /usr/lib/python3.11/logging/__init__.py:1467(debug)
+      742    0.005    0.000    0.014    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:503(is_active)
+     3710    0.014    0.000    0.014    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorName}
+     3710    0.014    0.000    0.014    0.000 {built-in method builtins.sorted}
+     3710    0.014    0.000    0.014    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorQuantization}
+     3710    0.013    0.000    0.013    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorQuantizationParameters}
+      743    0.013    0.000    0.013    0.000 {built-in method builtins.round}
+    11943    0.013    0.000    0.013    0.000 {method 'append' of 'list' objects}
+      742    0.011    0.000    0.013    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:654(_remove_stream)
+     3710    0.013    0.000    0.013    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorSize}
+     2226    0.012    0.000    0.012    0.000 {built-in method numpy.empty}
+     9093    0.012    0.000    0.012    0.000 {method 'startswith' of 'str' objects}
+     4452    0.008    0.000    0.012    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1380(<listcomp>)
+     3710    0.012    0.000    0.012    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorSizeSignature}
+     3710    0.012    0.000    0.012    0.000 {method 'astype' of 'numpy.ndarray' objects}
+      742    0.012    0.000    0.012    0.000 {method 'flatten' of 'numpy.ndarray' objects}
+     4452    0.011    0.000    0.011    0.000 {method 'swapaxes' of 'numpy.ndarray' objects}
+     2234    0.011    0.000    0.011    0.000 {built-in method _abc._abc_instancecheck}
+     1484    0.004    0.000    0.011    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/dtypes.py:277(__ne__)
+     3710    0.011    0.000    0.011    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorType}
+     3710    0.011    0.000    0.011    0.000 {method 'transpose' of 'numpy.ndarray' objects}
+      756    0.011    0.000    0.011    0.000 {built-in method _locale.getencoding}
+     5181    0.008    0.000    0.010    0.000 /usr/lib/python3.11/threading.py:273(_release_save)
+      742    0.010    0.000    0.010    0.000 {built-in method pyaudio._portaudio.is_stream_active}
+     1484    0.005    0.000    0.009    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:18(_flop_count)
+     2226    0.009    0.000    0.009    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:58(_view_roi)
+     5939    0.009    0.000    0.009    0.000 {built-in method builtins.issubclass}
+     8162    0.009    0.000    0.009    0.000 {method 'count' of 'str' objects}
+    12602    0.009    0.000    0.009    0.000 {built-in method time.monotonic}
+     3710    0.009    0.000    0.009    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.TensorSparsityParameters}
+     4452    0.009    0.000    0.009    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:109(<genexpr>)
+     1484    0.009    0.000    0.009    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:72(<dictcomp>)
+     5183    0.009    0.000    0.009    0.000 {built-in method _thread.allocate_lock}
+     4452    0.009    0.000    0.009    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:56(_compute_size_by_dict)
+      743    0.006    0.000    0.009    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1664(__init__)
+     3715    0.009    0.000    0.009    0.000 {built-in method builtins.max}
+     8904    0.009    0.000    0.009    0.000 {built-in method numpy.core._multiarray_umath.normalize_axis_index}
+     4452    0.008    0.000    0.008    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:120(<genexpr>)
+     2226    0.008    0.000    0.008    0.000 {method 'round' of 'numpy.ndarray' objects}
+     1484    0.005    0.000    0.008    0.000 /usr/lib/python3.11/queue.py:92(qsize)
+      742    0.004    0.000    0.008    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:887(<listcomp>)
+     5937    0.008    0.000    0.008    0.000 {method '__enter__' of '_thread.lock' objects}
+     4452    0.008    0.000    0.008    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:33(_slice_at_axis)
+      742    0.008    0.000    0.008    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:87(_frame_duration_seconds)
+     1486    0.004    0.000    0.008    0.000 <string>:1(<lambda>)
+     5947    0.007    0.000    0.007    0.000 {method 'replace' of 'str' objects}
+     2229    0.007    0.000    0.007    0.000 {method 'rfind' of 'bytes' objects}
+      742    0.002    0.000    0.007    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:861(get_tensor)
+     6678    0.007    0.000    0.007    0.000 {method '_datatype_enum' of 'tensorflow.python.framework.ops.EagerTensor' objects}
+     3726    0.006    0.000    0.006    0.000 {built-in method builtins.hasattr}
+     1486    0.004    0.000    0.006    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:986(timer)
+     5201    0.006    0.000    0.006    0.000 {method 'split' of 'str' objects}
+     7420    0.006    0.000    0.006    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:2540(context_safe)
+     1484    0.003    0.000    0.006    0.000 {built-in method builtins.sum}
+     1484    0.006    0.000    0.006    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.OutputIndices}
+     4452    0.006    0.000    0.006    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+     1484    0.004    0.000    0.006    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1855(isscalar)
+      743    0.002    0.000    0.005    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:545(_ensure_safe)
+     7421    0.005    0.000    0.005    0.000 {method '__exit__' of '_thread.lock' objects}
+     3710    0.005    0.000    0.005    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:1001(_einsum_dispatcher)
+      742    0.005    0.000    0.005    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.GetTensor}
+      742    0.004    0.000    0.004    0.000 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:32(_truncate)
+      742    0.004    0.000    0.004    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:83(_spectrogram_underlap_samples)
+     2231    0.004    0.000    0.004    0.000 {method 'join' of 'str' objects}
+      742    0.003    0.000    0.004    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:555(<listcomp>)
+     2226    0.004    0.000    0.004    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1455(<listcomp>)
+     2229    0.004    0.000    0.004    0.000 {method 'find' of 'bytes' objects}
+     2226    0.004    0.000    0.004    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/stride_tricks.py:20(__init__)
+      742    0.003    0.000    0.004    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/util/utils.py:351(is_positive_int)
+     2226    0.004    0.000    0.004    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/stride_tricks.py:25(_maybe_view_as_subclass)
+      759    0.004    0.000    0.004    0.000 {method 'decode' of 'bytes' objects}
+      752    0.004    0.000    0.004    0.000 {method 'add' of 'set' objects}
+      743    0.003    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:533(_safe_to_run)
+      743    0.003    0.000    0.003    0.000 {built-in method posix.getpid}
+      742    0.003    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:1192(device_name)
+     4452    0.003    0.000    0.003    0.000 {method 'pop' of 'list' objects}
+     1486    0.003    0.000    0.003    0.000 {built-in method __new__ of type object at 0x942fc8}
+      755    0.003    0.000    0.003    0.000 {built-in method pyaudio._portaudio.host_api_device_index_to_device_index}
+      743    0.003    0.000    0.003    0.000 /usr/lib/python3.11/threading.py:90(RLock)
+     5936    0.003    0.000    0.003    0.000 {built-in method _operator.index}
+     2226    0.003    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:6104(is_numpy_style_type_promotion)
+      744    0.003    0.000    0.003    0.000 /usr/lib/python3/dist-packages/psutil/_common.py:799(get_procfs_path)
+      742    0.003    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1103(<listcomp>)
+      742    0.002    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/tensor_conversion_registry.py:134(get)
+     5936    0.003    0.000    0.003    0.000 {method 'popleft' of 'collections.deque' objects}
+      742    0.002    0.000    0.003    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:1397(<listcomp>)
+   332/11    0.000    0.000    0.003    0.000 <frozen abc>:121(__subclasscheck__)
+   332/11    0.002    0.000    0.003    0.000 {built-in method _abc._abc_subclasscheck}
+      742    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:852(<listcomp>)
+     2227    0.002    0.000    0.002    0.000 {method 'items' of 'dict' objects}
+     2226    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:898(<genexpr>)
+     4452    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:533(_swapaxes_dispatcher)
+     1484    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3176(ndim)
+     1502    0.002    0.000    0.002    0.000 {method 'find' of 'str' objects}
+     2226    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:78(_get_forward_norm)
+     5181    0.002    0.000    0.002    0.000 {method 'append' of 'collections.deque' objects}
+     5181    0.002    0.000    0.002    0.000 {method 'release' of '_thread.lock' objects}
+      742    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:884(<listcomp>)
+     3710    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:182(__exit__)
+        1    0.000    0.000    0.002    0.002 /usr/lib/python3.11/argparse.py:1742(__init__)
+      742    0.002    0.000    0.002    0.000 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:17(_len_guards)
+     3726    0.002    0.000    0.002    0.000 {built-in method builtins.callable}
+     2226    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:118(_fft_dispatcher)
+     2226    0.002    0.000    0.002    0.000 {method 'insert' of 'list' objects}
+      756    0.002    0.000    0.002    0.000 {built-in method pyaudio._portaudio.get_device_info}
+      742    0.002    0.000    0.002    0.000 {method 'remove' of 'set' objects}
+     2979    0.002    0.000    0.002    0.000 {method 'keys' of 'dict' objects}
+     3710    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:176(__init__)
+     2226    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3265(_round_dispatcher)
+     2968    0.002    0.000    0.002    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/tensor.py:757(__tf_tensor__)
+       55    0.001    0.000    0.001    0.000 {method 'format' of 'str' objects}
+      742    0.001    0.000    0.001    0.000 {built-in method math.ceil}
+      742    0.001    0.000    0.001    0.000 {method 'upper' of 'str' objects}
+     2226    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/arraypad.py:525(_pad_dispatcher)
+        3    0.000    0.000    0.001    0.000 /usr/lib/python3.11/gettext.py:619(gettext)
+        3    0.000    0.000    0.001    0.000 /usr/lib/python3.11/gettext.py:581(dgettext)
+        3    0.000    0.000    0.001    0.000 /usr/lib/python3.11/gettext.py:522(translation)
+     3710    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/framework/ops.py:179(__enter__)
+        3    0.000    0.000    0.001    0.000 /usr/lib/python3.11/gettext.py:467(find)
+      785    0.001    0.000    0.001    0.000 {method 'setdefault' of 'dict' objects}
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:1128(_handle)
+      742    0.001    0.000    0.001    0.000 /usr/lib/python3/dist-packages/scipy/signal/windows/_windows.py:24(_extend)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/fft.py:43(get_fftlib)
+     1486    0.001    0.000    0.001    0.000 {built-in method time.time}
+     2226    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1389(_moveaxis_dispatcher)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/TFG/V5_Audio/audio_recorder.py:133(_chunk_duration_seconds)
+      744    0.001    0.000    0.001    0.000 /usr/lib/python3.11/threading.py:568(is_set)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1109(<listcomp>)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:698(ensure_initialized)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/librosa/core/spectrum.py:271(<listcomp>)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:858(<listcomp>)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1111(<listcomp>)
+      747    0.001    0.000    0.001    0.000 {built-in method builtins.min}
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2416(_all_dispatcher)
+     1484    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/function_base.py:19(_linspace_dispatcher)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1117(<listcomp>)
+     1484    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/multiarray.py:153(concatenate)
+        1    0.000    0.000    0.001    0.001 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:221(make_interpreter)
+     1484    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3172(_ndim_dispatcher)
+        1    0.000    0.000    0.001    0.001 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:390(__init__)
+     1484    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/multiarray.py:669(result_type)
+        5    0.000    0.000    0.001    0.000 /usr/lib/python3.11/argparse.py:1424(add_argument)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1116(<listcomp>)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tensorflow/python/eager/context.py:2533(context)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:1376(<listcomp>)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:3380(_mean_dispatcher)
+        1    0.001    0.001    0.001    0.001 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.CreateWrapperFromFile}
+        1    0.000    0.000    0.001    0.001 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:529(allocate_tensors)
+        1    0.001    0.001    0.001    0.001 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.AllocateTensors}
+      752    0.001    0.000    0.001    0.000 {method 'pop' of 'dict' objects}
+      743    0.001    0.000    0.001    0.000 {method 'copy' of 'set' objects}
+      743    0.001    0.000    0.001    0.000 {built-in method builtins.iter}
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:1108(<listcomp>)
+        3    0.000    0.000    0.001    0.000 /usr/lib/python3.11/typing.py:1952(__instancecheck__)
+      743    0.001    0.000    0.001    0.000 {built-in method sys.getrefcount}
+        1    0.000    0.000    0.001    0.001 /usr/lib/python3.11/threading.py:938(start)
+      742    0.001    0.000    0.001    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/lib/function_base.py:1320(_diff_dispatcher)
+        1    0.000    0.000    0.001    0.001 /home/alvaro/TFG/V5_Audio/audio_recorder.py:137(_print_input_devices)
+      743    0.001    0.000    0.001    0.000 /usr/lib/python3/dist-packages/psutil/__init__.py:423(pid)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/TFG/V5_Audio/model_w_profilling.py:230(add_model_flags)
+      742    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/fromnumeric.py:2974(_prod_dispatcher)
+      742    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/numeric.py:928(_tensordot_dispatcher)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:604(wait)
+      742    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/multiarray.py:741(dot)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:2592(_get_formatter)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:173(__init__)
+        9    0.000    0.000    0.000    0.000 /usr/lib/python3.11/typing.py:1873(_get_protocol_attrs)
+      742    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/numpy/core/einsumfunc.py:696(_einsum_path_dispatcher)
+       24    0.000    0.000    0.000    0.000 <frozen posixpath>:71(join)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/typing.py:1890(_is_callable_members_only)
+        6    0.000    0.000    0.000    0.000 /usr/lib/python3.11/gettext.py:216(_expand_lang)
+       24    0.000    0.000    0.000    0.000 <frozen genericpath>:16(exists)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1873(parse_args)
+       24    0.000    0.000    0.000    0.000 {built-in method posix.stat}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1880(parse_known_args)
+        2    0.000    0.000    0.000    0.000 /usr/lib/python3.11/typing.py:2019(_proto_hook)
+        3    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1342(__init__)
+        1    0.000    0.000    0.000    0.000 {built-in method _thread.start_new_thread}
+        6    0.000    0.000    0.000    0.000 /usr/lib/python3.11/locale.py:396(normalize)
+       22    0.000    0.000    0.000    0.000 <frozen os>:674(__getitem__)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:520(__del__)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/shutil.py:1387(get_terminal_size)
+       12    0.000    0.000    0.000    0.000 <frozen _collections_abc>:771(get)
+        2    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1475(add_argument_group)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1918(_parse_known_args)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3/dist-packages/psutil/_pslinux.py:1560(boot_time)
+        2    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1652(__init__)
+       13    0.000    0.000    0.000    0.000 /usr/lib/python3.11/re/__init__.py:225(compile)
+        3    0.000    0.000    0.000    0.000 /usr/lib/python3.11/locale.py:362(_replace_encoding)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:849(__init__)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1853(_add_action)
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/logging/__init__.py:237(_releaseLock)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1674(_add_action)
+       13    0.000    0.000    0.000    0.000 /usr/lib/python3.11/re/__init__.py:272(_compile)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/queue.py:34(__init__)
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:236(__init__)
+      171    0.000    0.000    0.000    0.000 <frozen _collections_abc>:262(__subclasshook__)
+       37    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1395(register)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1485(_add_action)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1565(_get_optional_kwargs)
+        3    0.000    0.000    0.000    0.000 /usr/lib/python3.11/encodings/__init__.py:43(normalize_encoding)
+       22    0.000    0.000    0.000    0.000 <frozen os>:756(encode)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:606(_format_args)
+        7    0.000    0.000    0.000    0.000 {built-in method builtins.all}
+        1    0.000    0.000    0.000    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:803(get_default_input_device_info)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:764(get_signature_list)
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/logging/__init__.py:228(_acquireLock)
+        1    0.000    0.000    0.000    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:696(get_host_api_info_by_index)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/_weakrefset.py:39(_remove)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:555(__init__)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:334(_get_op_resolver_id)
+       25    0.000    0.000    0.000    0.000 <frozen posixpath>:41(_get_sep)
+       72    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:931(__init__)
+       10    0.000    0.000    0.000    0.000 /usr/lib/python3.11/typing.py:1892(<genexpr>)
+        1    0.000    0.000    0.000    0.000 <frozen posixpath>:140(basename)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1599(_pop_action_class)
+        5    0.000    0.000    0.000    0.000 {built-in method posix.get_terminal_size}
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/typing.py:1968(<genexpr>)
+        6    0.000    0.000    0.000    0.000 {method 'match' of 're.Pattern' objects}
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:846(__init__)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:2067(consume_positionals)
+       11    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1399(_registry_get)
+        3    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1603(_get_handler)
+        4    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.RLock' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method tflite_runtime._pywrap_tensorflow_interpreter_wrapper.GetSignatureDefs}
+        3    0.000    0.000    0.000    0.000 <frozen os>:760(decode)
+        1    0.000    0.000    0.000    0.000 /usr/local/lib/python3.11/dist-packages/pyaudio/__init__.py:726(_make_host_api_dictionary)
+       22    0.000    0.000    0.000    0.000 {method 'encode' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/enum.py:192(__get__)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1111(__init__)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/_weakrefset.py:85(add)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:599(format)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/enum.py:1229(__hash__)
+        9    0.000    0.000    0.000    0.000 {method 'keys' of 'mappingproxy' objects}
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1612(_check_conflict)
+       12    0.000    0.000    0.000    0.000 <frozen _collections_abc>:283(__subclasshook__)
+        5    0.000    0.000    0.000    0.000 {built-in method builtins.setattr}
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:218(__init__)
+       25    0.000    0.000    0.000    0.000 {built-in method posix.fspath}
+        5    0.000    0.000    0.000    0.000 {method 'fileno' of '_io.TextIOWrapper' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:2526(_get_value)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:590(_metavar_formatter)
+        1    0.000    0.000    0.000    0.000 {built-in method pyaudio._portaudio.get_host_api_info}
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/logging/__init__.py:1720(getEffectiveLevel)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:1446(current_thread)
+       12    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1865(_get_positional_actions)
+       15    0.000    0.000    0.000    0.000 {method 'isalnum' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 {method 'startswith' of 'bytes' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:2218(_match_arguments_partial)
+        4    0.000    0.000    0.000    0.000 {method 'release' of '_thread.RLock' objects}
+        2    0.000    0.000    0.000    0.000 {method 'get' of 'mappingproxy' objects}
+        1    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:1317(_make_invoke_excepthook)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:804(_newname)
+        1    0.000    0.000    0.000    0.000 {built-in method pyaudio._portaudio.get_default_input_device}
+        5    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 /usr/lib/python3.11/logging/__init__.py:1319(disable)
+        5    0.000    0.000    0.000    0.000 /usr/lib/python3.11/enum.py:1248(value)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/queue.py:206(_init)
+        1    0.000    0.000    0.000    0.000 {method 'discard' of 'set' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/threading.py:1199(daemon)
+       12    0.000    0.000    0.000    0.000 {method 'isascii' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1327(__init__)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1866(<listcomp>)
+        6    0.000    0.000    0.000    0.000 {method 'reverse' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:628(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {method 'strip' of 'bytes' objects}
+        1    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.RLock' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:458(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/interpreter.py:461(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/metrics_portable.py:33(__init__)
+        1    0.000    0.000    0.000    0.000 /usr/lib/python3.11/argparse.py:1782(identity)
+        1    0.000    0.000    0.000    0.000 /home/alvaro/.local/lib/python3.11/site-packages/tflite_runtime/metrics_portable.py:41(increase_counter_interpreter_creation)
+
+
+
+Execution Time: 301.05 seconds
+CPU Usage: 63.90%
